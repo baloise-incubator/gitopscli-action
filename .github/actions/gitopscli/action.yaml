@@ -1,0 +1,16 @@
+# action.yml
+name: 'GitOpsCli'
+description: 'The great and powerful gitops in github'
+inputs:
+  command:  # id of input
+    description: 'gitops command to execute'
+    required: true
+    default: 'help'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'docker://baloise/gitopscli:5.8'
+  args:
+    - ${{ inputs.command }}
